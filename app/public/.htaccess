@@ -1,0 +1,20 @@
+# 確保 Apache 的 mod_rewrite 模組已啟用
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # 檢查文件或目錄是否存在
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # 將所有請求重寫到 index.php
+    RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>
+
+# 禁止顯示目錄列表
+Options -Indexes
+
+# 禁止訪問 .htaccess 文件
+<Files ".htaccess">
+    Order allow,deny
+    Deny from all
+</Files>

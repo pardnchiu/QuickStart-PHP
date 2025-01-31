@@ -1,0 +1,73 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    platform: linux/amd64
+    # container_name: php-admin
+    ports:
+      - "80:80"
+    volumes:
+      - ./app:/var/www/html
+      - mysqld-socket:/run/mysqld
+    depends_on:
+      - mariadb
+      - redis
+    restart: unless-stopped
+    networks:
+      - frontend_network
+      - backend_network
+
+  composer:
+    image: composer:latest
+    platform: linux/amd64
+    # container_name: php-admin-composer
+    volumes:
+      - ./app:/app
+    command: install
+    depends_on:
+      - app
+
+  mariadb:
+    image: mariadb:latest
+    platform: linux/amd64
+    # container_name: php-admin-mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_INITDB_SKIP_TZINFO: 1
+      MYSQL_INIT_FORCE: 1  # 添加这行
+    volumes:
+      - mariadb-data:/var/lib/mysql
+      - mysqld-socket:/run/mysqld
+    ports:
+      - "3306:3306"
+    restart: unless-stopped
+    networks:
+      - backend_network
+
+  redis:
+    image: redis:latest
+    platform: linux/amd64
+    # container_name: php-admin-redis
+    command: redis-server --requirepass ${REDIS_PASSWORD}
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+    networks:
+      - backend_network
+
+volumes:
+  mariadb-data:
+  mysqld-socket:
+  redis-data:
+
+networks:
+  frontend_network:
+    driver: bridge
+  backend_network:
+    driver: bridge

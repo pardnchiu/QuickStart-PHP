@@ -1,0 +1,29 @@
+{
+    "require": {
+        "vlucas/phpdotenv": "^5.6",
+        "monolog/monolog": "^3.7",
+        "predis/predis": "^2.2",
+        "react/event-loop": "^1.5",
+        "react/promise": "^3.2",
+        "firebase/php-jwt": "^6.0"
+    },
+    "scripts": {
+        "output": "lnav storage/logs/info.log",
+        "debug": "lnav storage/logs/debug.log",
+        "error": "lnav storage/logs/error.log",
+        "sass": "sass resources/sass:public/css -w --style compressed --no-source-map"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "Controllers\\": "src/Controllers/",
+            "GET\\": "src/Controllers/GET/",
+            "POST\\": "src/Controllers/POST/",
+            "PATCH\\": "src/Controllers/PATCH/",
+            "PUT\\": "src/Controllers/PUT/",
+            "DELETE\\": "src/Controllers/DELETE/",
+            "Models\\": "src/Models/",
+            "Uploader\\": "src/Models/Uploader/"
+        }
+    }
+}

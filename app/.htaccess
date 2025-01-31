@@ -1,0 +1,37 @@
+<IfModule mod_deflate.c>
+    # 壓縮 HTML, CSS, XML, JavaScript 以及 PHP
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json application/x-httpd-php
+    # 不壓縮圖片及二進制文件
+    SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png|bmp|exe|zip|gz|tar|rar|bz2|iso|pdf|avi|mov|mp3|mp4|m4a|m4v|flv|wmv|webm|mkv|swf)$ no-gzip dont-vary
+</IfModule>
+
+# 禁止訪問 public 目錄以外的所有文件
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # 如果 X-Forwarded-Proto 是 https，則設定 HTTPS 環境變數
+    RewriteCond %{HTTP:X-Forwarded-Proto} =https
+    RewriteRule .* - [E=HTTPS:on]
+
+    # 確保請求的文件或目錄存在於 public 目錄中
+    RewriteCond %{REQUEST_URI} !^/public/
+
+    RewriteRule ^(.*)$ /public/$1 [L]
+    # 將所有請求重寫到 403 Forbidden
+    RewriteRule ^ - [F,L]
+</IfModule>
+
+# 禁止顯示目錄列表
+Options -Indexes
+
+# 禁止訪問 .env 文件
+<Files ".env">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# 禁止訪問 .htaccess 文件
+<Files ".htaccess">
+    Order allow,deny
+    Deny from all
+</Files>
