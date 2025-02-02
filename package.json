@@ -1,6 +1,6 @@
 {
     "name": "@pardnchiu/quickstart-php",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "QuickStart-PHP is a PHP development template that provides a basic framework and example code to help developers quickly start a project and focus on feature development.",
     "main": "",
     "scripts": {
@@ -11,10 +11,10 @@
         "app",
         "!app/vendor/",
         "!app/vendor/composer.lock",
-        "!app/storage/caches/",
-        "!app/storage/images/",
-        "!app/storage/logs/",
-        "!app/storage/sessions/",
+        "!app/storage/caches/*",
+        "!app/storage/images/*",
+        "!app/storage/logs/*",
+        "!app/storage/sessions/*",
         "LICENSE",
         "README.md"
     ],
