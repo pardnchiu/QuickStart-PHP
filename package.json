@@ -1,0 +1,36 @@
+{
+    "name": "@pardnchiu/quickstart-php",
+    "version": "0.1.0",
+    "description": "QuickStart-PHP is a PHP development template that provides a basic framework and example code to help developers quickly start a project and focus on feature development.",
+    "main": "",
+    "scripts": {
+        "error:php": "lnav -r demo/app/storage/logs/error.log",
+        "debug:php": "lnav -r demo/app/storage/logs/debug.log"
+    },
+    "files": [
+        "app",
+        "LICENSE",
+        "README.md"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pardnchiu/QuickStart-PHP.git"
+    },
+    "keywords": [
+        "php template",
+        "邱敬幃",
+        "pardnchiu"
+    ],
+    "author": {
+        "name": "邱敬幃 Pardn Chiu",
+        "email": "dev@pardn.io",
+        "url": "https://github.com/pardnchiu"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/pardnchiu/QuickStart-PHP/issues",
+        "email": "dev@pardn.io"
+    },
+    "homepage": "https://github.com/pardnchiu/QuickStart-PHP#readme",
+    "devDependencies": {}
+}
