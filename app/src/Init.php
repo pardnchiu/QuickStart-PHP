@@ -19,9 +19,9 @@ if (file_exists(get_path("/.env"))) {
     $ENV = $_ENV["ENV"];
 };
 
-$REDIS_CLIENT   = new App\Models\Redis(0);
-$CACHE_CLIENT   = new App\Models\Cache($REDIS_CLIENT);
-$SESSION_CLIENT = new App\Models\Session($REDIS_CLIENT);
+$REDIS_CLIENT   = new PD\Redis(0);
+$CACHE_CLIENT   = new PD\Cache($REDIS_CLIENT);
+$SESSION_CLIENT = new PD\Session($REDIS_CLIENT);
 
 if ($SESSION_CLIENT->get("session_id") === null) {
     $SESSION_CLIENT->set("created_time", date("Y-m-d H:i:s"));

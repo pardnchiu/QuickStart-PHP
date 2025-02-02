@@ -1,6 +1,6 @@
 {
     "name": "@pardnchiu/quickstart-php",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "QuickStart-PHP is a PHP development template that provides a basic framework and example code to help developers quickly start a project and focus on feature development.",
     "main": "",
     "scripts": {

@@ -2,10 +2,12 @@
     "require": {
         "vlucas/phpdotenv": "^5.6",
         "monolog/monolog": "^3.7",
-        "predis/predis": "^2.2",
-        "react/event-loop": "^1.5",
-        "react/promise": "^3.2",
-        "firebase/php-jwt": "^6.0"
+        "firebase/php-jwt": "^6.0",
+        "pardnchiu/async": "^1.0",
+        "pardnchiu/sql": "^1.0",
+        "pardnchiu/redis": "^1.0",
+        "pardnchiu/cache": "^1.0",
+        "pardnchiu/session": "^1.0"
     },
     "scripts": {
         "output": "lnav storage/logs/info.log",
