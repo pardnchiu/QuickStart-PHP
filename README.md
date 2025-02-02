@@ -6,8 +6,7 @@
 
 > QuickStart-PHP 是一個 PHP 開發模板，提供了基本框架和範例代碼，幫助開發者快速啟動項目，並專注於功能開發。
 
-![tag](https://img.shields.io/badge/tag-PHP%20Template-bb4444) 
-![size](https://img.shields.io/github/size/pardnchiu/QuickStart-PHP/dist/QuickStart-PHP.js)<br>
+![tag](https://img.shields.io/badge/tag-PHP%20Template-bb4444)<br>
 [![npm](https://img.shields.io/npm/v/@pardnchiu/quickstart-php)](https://www.npmjs.com/package/@pardnchiu/quickstart-php)
 [![download](https://img.shields.io/npm/dm/@pardnchiu/quickstart-php)](https://www.npmjs.com/package/@pardnchiu/quickstart-php)
 [![jsdeliver](https://img.shields.io/jsdelivr/npm/hm/@pardnchiu/quickstart-php)](https://www.jsdelivr.com/package/npm/@pardnchiu/quickstart-php)
