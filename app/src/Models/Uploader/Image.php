@@ -1,13 +1,13 @@
 <?php
 
-namespace Uploader;
+namespace App\Models\Uploader;
 
 class Image
 {
     public static function upload($file, $targetDir)
     {
         $filename = uniqid(session_id() . "_", true) . ".jpg";
-        $filepath = PATH($targetDir . $filename);
+        $filepath = get_path($targetDir . $filename);
         $filetype = strtolower(pathinfo($file["name"], PATHINFO_EXTENSION));
 
         $check = getimagesize($file["tmp_name"]);

@@ -1,5 +1,5 @@
 <?php
 
 return [
-    "/" => GET\IndexController::class,
+    "/" => App\Controllers\GET\IndexController::class,
 ];

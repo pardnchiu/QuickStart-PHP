@@ -1,6 +1,6 @@
 <?php
 
-namespace Models;
+namespace App\Models;
 
 use \Firebase\JWT\JWT;
 
@@ -17,12 +17,12 @@ class Auth
         $exp = $iat + self::$expire_sec;
 
         $payload = array(
-            "iat" => $iat,
-            "exp" => $exp,
-            "user" => [
-                "sn" => $auth_data["sn"],
+            "iat"   => $iat,
+            "exp"   => $exp,
+            "user"  => [
+                "sn"    => $auth_data["sn"],
                 "email" => $auth_data["email"],
-                "name" => $auth_data["name"]
+                "name"  => $auth_data["name"]
             ]
         );
 
@@ -79,8 +79,8 @@ class Auth
 
     public static function get_jwt()
     {
-        if (isset($_SERVER["HTTP_AUTHORIZATION"])) {
-            return str_replace("Bearer ", "", $_SERVER["HTTP_AUTHORIZATION"]);
+        if (isset($_SERVER['HTTP_AUTHORIZATION'])) {
+            return str_replace('Bearer ', '', $_SERVER['HTTP_AUTHORIZATION']);
         } else if (isset($_COOKIE[self::$token_name])) {
             return $_COOKIE[self::$token_name];
         };

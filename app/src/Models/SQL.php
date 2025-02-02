@@ -1,6 +1,6 @@
 <?php
 
-namespace Models;
+namespace App\Models;
 
 class SQL
 {
@@ -76,7 +76,7 @@ class SQL
         if (is_string($fields)) {
             $fields = func_get_args();
         };
-
+        
         self::$selects = $fields;
 
         return new static();

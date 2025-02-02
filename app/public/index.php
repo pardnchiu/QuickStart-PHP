@@ -1,9 +1,15 @@
 <?php
 $ROOT = $_SERVER["DOCUMENT_ROOT"];
 
-function PATH($path) {
+function get_path($path)
+{
     global $ROOT;
     return $ROOT . $path;
 };
 
-require_once PATH("/src/Init.php");
+function get_view($path)
+{
+    return  get_path("/resources/Views/" . $path . ".php");
+};
+
+require_once get_path("/src/Init.php");

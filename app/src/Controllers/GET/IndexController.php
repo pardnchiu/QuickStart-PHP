@@ -1,8 +1,8 @@
 <?php
 
-namespace GET;
+namespace App\Controllers\GET;
 
-use Controllers\Controller;
+use App\Controllers\Controller;
 
 class IndexController extends Controller
 {
@@ -24,7 +24,7 @@ class IndexController extends Controller
 
         ob_start();
 
-        include GET_VIEW($this->view);
+        include get_view($this->view);
 
         echo ob_get_clean();
     }
